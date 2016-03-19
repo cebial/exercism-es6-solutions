@@ -1,6 +1,9 @@
-const sort = s => [...s.toLowerCase()].sort().join('');
+export default function anagram(word) {
+  /* eslint one-var: 0, indent: 0, one-var-declaration-per-line: 0 */
+  const clean = s => s.toLowerCase(),
+        sort = s => [...s].sort().join(''),
+        cleaned = clean(word), sorted = sort(cleaned),
+        check = s => sorted === sort(clean(s)) && cleaned !== clean(s);
 
-export default w => ({
-  matches: (...l) => [].concat(...l).filter(v =>
-    sort(w) === sort(v) && w.toLowerCase() !== v.toLowerCase())
-});
+  return { matches: (...list) => [].concat(...list).filter(check) };
+}
