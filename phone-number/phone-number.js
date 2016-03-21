@@ -1,6 +1,6 @@
 export default number => {
   let n = number.replace(/\D/g, '');
-  if (n.length === 11 && n[0] === '1') { n = n.slice(1); }
+  if (n.length === 11 && n[0] === '1') n = n.slice(1);
   if (n.length !== 10) n = '0000000000';
 
   return {
