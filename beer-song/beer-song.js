@@ -2,7 +2,7 @@ const thisMany = n => n || 'no more';
 const bottles = n => 'bottle' + (n - 1 ? 's' : '');
 const one = n => n ? 'one' : 'it';
 
-const song = Array.from(Array(100), (_, x) => {
+const song = [...Array(100)].map((_, x) => {
   const y = x ? x - 1 : 99;
 
   return (`${thisMany(x)} ${bottles(x)} of beer on the wall, `

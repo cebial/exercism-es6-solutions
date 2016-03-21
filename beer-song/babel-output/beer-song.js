@@ -3,6 +3,9 @@
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
+
 var thisMany = function thisMany(n) {
   return n || 'no more';
 };
@@ -13,7 +16,8 @@ var one = function one(n) {
   return n ? 'one' : 'it';
 };
 
-var song = Array.from(Array(100), function (_, x) {
+var song = [].concat(_toConsumableArray(Array(100))).map(function (_, x) {
+  // const song = Array.from(Array(100), (_, x) => {
   var y = x ? x - 1 : 99;
 
   return (thisMany(x) + ' ' + bottles(x) + ' of beer on the wall, ' + (thisMany(x) + ' ' + bottles(x) + ' of beer.\n') + (x ? 'Take ' + one(y) + ' down and pass it around, ' : 'Go to the store and buy some more, ') + (thisMany(y) + ' ' + bottles(y) + ' of beer on the wall.\n')).replace(/^n/, 'N'); // is there a cleaner way?
